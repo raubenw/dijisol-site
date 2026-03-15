@@ -3,46 +3,34 @@ import { useState } from "react";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error" | "confirm">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
 
-    // FormSubmit.co — free, no registration needed, unlimited submissions
-    // First submission triggers a confirmation email to solutions@dijisol.com
     try {
-      const res = await fetch("https://formsubmit.co/ajax/solutions@dijisol.com", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          _subject: `DijiSol Contact: ${form.service || "General Inquiry"}`,
+          access_key: "5c53a2d5-0ba9-433b-ad6f-8baa902d50c1",
+          subject: `DijiSol Contact: ${form.service || "General Inquiry"}`,
+          from_name: form.name,
           name: form.name,
           email: form.email,
           service: form.service,
           message: form.message,
-          _template: "table",
-          _captcha: "false",
         }),
       });
       const data = await res.json();
-      if (data.success === "true" || data.success === true) {
+      if (data.success) {
         setStatus("sent");
         setForm({ name: "", email: "", service: "", message: "" });
-      } else if (
-        data.message?.toLowerCase().includes("confirm") ||
-        data.message?.toLowerCase().includes("activat") ||
-        data.message?.toLowerCase().includes("verify")
-      ) {
-        // First-time activation: FormSubmit sent a confirmation email
-        setStatus("confirm");
       } else {
-        // Likely unactivated email — show as confirm prompt
-        console.log("FormSubmit response:", JSON.stringify(data));
-        setStatus("confirm");
+        setStatus("error");
       }
-    } catch (err) {
-      console.error("Contact form error:", err);
+    } catch {
       setStatus("error");
     }
   };
@@ -75,11 +63,6 @@ export default function ContactPage() {
               {status === "sent" && (
                 <div className="mb-6 p-4 bg-accent/10 border border-accent/20 rounded-lg text-accent font-medium">
                   Message sent! We&apos;ll get back to you within 24 hours.
-                </div>
-              )}
-              {status === "confirm" && (
-                <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg text-blue-700 font-medium">
-                  Almost there! A confirmation email was sent to our inbox. We&apos;re activating the form now — please try again in a few minutes, or email us directly at <a href="mailto:solutions@dijisol.com" className="underline">solutions@dijisol.com</a>.
                 </div>
               )}
               {status === "error" && (

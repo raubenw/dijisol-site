@@ -288,14 +288,14 @@ export default function ShopPage() {
                   onSubmit={async (e) => {
                     e.preventDefault();
                     try {
-                      await fetch("https://formsubmit.co/ajax/solutions@dijisol.com", {
+                      await fetch("https://api.web3forms.com/submit", {
                         method: "POST",
                         headers: { "Content-Type": "application/json", Accept: "application/json" },
                         body: JSON.stringify({
-                          _subject: "DijiSol Hardware Store - Launch Notification Signup",
+                          access_key: "5c53a2d5-0ba9-433b-ad6f-8baa902d50c1",
+                          subject: "DijiSol Hardware Store - Launch Notification Signup",
                           email: notify.email,
                           message: "Please notify me when the hardware store launches.",
-                          _template: "table",
                         }),
                       });
                       setNotify({ email: "", submitted: true });
