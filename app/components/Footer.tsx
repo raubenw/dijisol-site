@@ -16,48 +16,152 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Digital solutions that drive real results. We build software, websites, and apps that grow your business.
+              Digital solutions that drive real results. We build software,
+              websites, and apps that grow your business.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-gray-300 mb-4">Services</h4>
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-gray-300 mb-4">
+              Services
+            </h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/services" className="hover:text-white transition-colors">Web Development</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">SaaS Development</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">Android Apps</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">AI Integration</Link></li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-white transition-colors"
+                >
+                  Web Development
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-white transition-colors"
+                >
+                  SaaS Development
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-white transition-colors"
+                >
+                  Android Apps
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services"
+                  className="hover:text-white transition-colors"
+                >
+                  AI Integration
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Products */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-gray-300 mb-4">Products</h4>
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-gray-300 mb-4">
+              Products
+            </h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/products" className="hover:text-white transition-colors">TradeQuotes</Link></li>
-              <li><a href="https://lifebypriority.com" target="_blank" rel="noopener" className="hover:text-white transition-colors">Life By Priority</a></li>
-              <li><a href="https://trackingtrax.com" target="_blank" rel="noopener" className="hover:text-white transition-colors">TrackingTrax</a></li>
-              <li><a href="https://clicomp.agency" target="_blank" rel="noopener" className="hover:text-white transition-colors">CliComp Agency</a></li>
+              <li>
+                <Link
+                  href="/products"
+                  className="hover:text-white transition-colors"
+                >
+                  TradeQuotes
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://lifebypriority.com"
+                  target="_blank"
+                  rel="noopener"
+                  className="hover:text-white transition-colors"
+                >
+                  Life By Priority
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://trackingtrax.com"
+                  target="_blank"
+                  rel="noopener"
+                  className="hover:text-white transition-colors"
+                >
+                  TrackingTrax
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://clicomp.agency"
+                  target="_blank"
+                  rel="noopener"
+                  className="hover:text-white transition-colors"
+                >
+                  CliComp Agency
+                </a>
+              </li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-gray-300 mb-4">Get in Touch</h4>
+            <h4 className="font-semibold text-sm uppercase tracking-wider text-gray-300 mb-4">
+              Get in Touch
+            </h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
-              <li><a href="https://x.com/BydesignIlive" target="_blank" rel="noopener" className="hover:text-white transition-colors">X / Twitter</a></li>
-              <li><Link href="/shop" className="hover:text-white transition-colors">Shop</Link></li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-white transition-colors"
+                >
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/BydesignIlive"
+                  target="_blank"
+                  rel="noopener"
+                  className="hover:text-white transition-colors"
+                >
+                  X / Twitter
+                </a>
+              </li>
+              <li>
+                <Link
+                  href="/shop"
+                  className="hover:text-white transition-colors"
+                >
+                  Shop
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} DijiSol. All rights reserved.</p>
+          <p className="text-sm text-gray-500">
+            &copy; {new Date().getFullYear()} DijiSol. All rights reserved.
+          </p>
           <div className="flex gap-4 text-sm text-gray-500">
-            <Link href="/privacy" className="hover:text-gray-300 transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-gray-300 transition-colors">Terms</Link>
+            <Link
+              href="/privacy"
+              className="hover:text-gray-300 transition-colors"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/terms"
+              className="hover:text-gray-300 transition-colors"
+            >
+              Terms
+            </Link>
           </div>
         </div>
       </div>

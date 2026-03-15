@@ -7,10 +7,12 @@ export const metadata: Metadata = {
   title: "DijiSol — Digital Solutions That Deliver",
   description:
     "Web development, SaaS apps, Android apps, and AI-powered solutions. We build intelligent software that grows your business.",
-  keywords: "web development, SaaS, Android apps, AI integration, software development, digital solutions",
+  keywords:
+    "web development, SaaS, Android apps, AI integration, software development, digital solutions",
   openGraph: {
     title: "DijiSol — Digital Solutions That Deliver",
-    description: "Web development, SaaS apps, Android apps, and AI-powered solutions.",
+    description:
+      "Web development, SaaS apps, Android apps, and AI-powered solutions.",
     url: "https://dijisol.com",
     siteName: "DijiSol",
     type: "website",

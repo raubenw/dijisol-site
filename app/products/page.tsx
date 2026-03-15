@@ -6,7 +6,7 @@ const PRODUCTS = [
     name: "TradeQuotes",
     tagline: "AI-Powered Quoting for Tradespeople",
     desc: "Upload a hand-drawn sketch, photo, or PDF — and get a professional quote in minutes. Supports 8 trades including granite countertops, tiling, plumbing, electrical, painting, pest control, carpentry, and landscaping.",
-    url: "https://quotes-67f32.web.app",
+    url: "https://tradequotes.dijisol.com",
     icon: "🔧",
     status: "Live",
     features: [
@@ -75,12 +75,16 @@ export default function ProductsPage() {
       <section className="bg-gradient-to-br from-dark via-dark-light to-dark py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-primary-light font-semibold text-sm uppercase tracking-wider mb-4">Our Products</p>
+            <p className="text-primary-light font-semibold text-sm uppercase tracking-wider mb-4">
+              Our Products
+            </p>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
               Software We&apos;ve Built &amp; Shipped
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl leading-relaxed">
-              Real products, live in production, solving real problems. Every one of these was built by DijiSol — and we can build something like this for you too.
+              Real products, live in production, solving real problems. Every
+              one of these was built by DijiSol — and we can build something
+              like this for you too.
             </p>
           </div>
         </div>
@@ -100,8 +104,12 @@ export default function ProductsPage() {
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-4xl">{p.icon}</span>
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-900">{p.name}</h2>
-                    <p className="text-sm text-primary font-medium">{p.tagline}</p>
+                    <h2 className="text-2xl font-bold text-gray-900">
+                      {p.name}
+                    </h2>
+                    <p className="text-sm text-primary font-medium">
+                      {p.tagline}
+                    </p>
                   </div>
                   <span className="text-xs font-semibold px-2 py-0.5 rounded bg-accent/10 text-accent">
                     {p.status}
@@ -115,19 +123,44 @@ export default function ProductsPage() {
                   className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors text-sm"
                 >
                   Visit {p.name}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
                   </svg>
                 </a>
               </div>
               <div className="flex-1 w-full">
                 <div className="bg-gray-50 rounded-xl border border-gray-200 p-6">
-                  <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-4">Key Features</h4>
+                  <h4 className="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-4">
+                    Key Features
+                  </h4>
                   <ul className="space-y-3">
                     {p.features.map((f) => (
-                      <li key={f} className="flex items-start gap-3 text-sm text-gray-600">
-                        <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <li
+                        key={f}
+                        className="flex items-start gap-3 text-sm text-gray-600"
+                      >
+                        <svg
+                          className="w-5 h-5 text-accent flex-shrink-0 mt-0.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                         {f}
                       </li>
@@ -147,8 +180,8 @@ export default function ProductsPage() {
             Need Something Like This?
           </h2>
           <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
-            Every product above was built from scratch by DijiSol.
-            Tell us about your idea and we&apos;ll make it real.
+            Every product above was built from scratch by DijiSol. Tell us about
+            your idea and we&apos;ll make it real.
           </p>
           <Link
             href="/contact"

@@ -80,8 +80,9 @@ export default function HomePage() {
               <span className="gradient-text">Grows Your Business</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl leading-relaxed">
-              From websites and SaaS platforms to mobile apps with intelligent AI features —
-              we turn your ideas into production-ready digital products.
+              From websites and SaaS platforms to mobile apps with intelligent
+              AI features — we turn your ideas into production-ready digital
+              products.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -107,7 +108,9 @@ export default function HomePage() {
           <div className="grid grid-cols-3 gap-8 text-center">
             {STATS.map((s) => (
               <div key={s.label}>
-                <div className="text-3xl md:text-4xl font-extrabold text-primary mb-1">{s.value}</div>
+                <div className="text-3xl md:text-4xl font-extrabold text-primary mb-1">
+                  {s.value}
+                </div>
                 <div className="text-sm text-gray-500">{s.label}</div>
               </div>
             ))}
@@ -119,12 +122,15 @@ export default function HomePage() {
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">What We Do</p>
+            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
+              What We Do
+            </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
               End-to-End Digital Development
             </h2>
             <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-              We build intelligent solutions powered by modern technology. Whatever your digital need, we&apos;ve got you covered.
+              We build intelligent solutions powered by modern technology.
+              Whatever your digital need, we&apos;ve got you covered.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -137,12 +143,17 @@ export default function HomePage() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
                   {s.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {s.desc}
+                </p>
               </div>
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/services" className="text-primary font-semibold hover:underline text-sm">
+            <Link
+              href="/services"
+              className="text-primary font-semibold hover:underline text-sm"
+            >
               Explore All Services &rarr;
             </Link>
           </div>
@@ -153,12 +164,15 @@ export default function HomePage() {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Our Products</p>
+            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
+              Our Products
+            </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
               Software We&apos;ve Built &amp; Shipped
             </h2>
             <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-              Real products, live in production, serving real users. This is what we do — and we can build it for you too.
+              Real products, live in production, serving real users. This is
+              what we do — and we can build it for you too.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -181,17 +195,32 @@ export default function HomePage() {
                         {p.badge}
                       </span>
                     </div>
-                    <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      {p.desc}
+                    </p>
                   </div>
-                  <svg className="w-5 h-5 text-gray-300 group-hover:text-primary transition-colors mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  <svg
+                    className="w-5 h-5 text-gray-300 group-hover:text-primary transition-colors mt-1 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
                   </svg>
                 </div>
               </a>
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/products" className="text-primary font-semibold hover:underline text-sm">
+            <Link
+              href="/products"
+              className="text-primary font-semibold hover:underline text-sm"
+            >
               View All Products &rarr;
             </Link>
           </div>
@@ -205,8 +234,8 @@ export default function HomePage() {
             Ready to Build Something Great?
           </h2>
           <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
-            Whether you need a website, a SaaS platform, a mobile app, or smart AI features —
-            let&apos;s talk about your project.
+            Whether you need a website, a SaaS platform, a mobile app, or smart
+            AI features — let&apos;s talk about your project.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
