@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error" | "confirm">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,12 +22,16 @@ export default function ContactPage() {
           service: form.service,
           message: form.message,
           _template: "table",
+          _captcha: "false",
         }),
       });
       const data = await res.json();
       if (data.success === "true" || data.success === true) {
         setStatus("sent");
         setForm({ name: "", email: "", service: "", message: "" });
+      } else if (data.message?.includes("Confirm")) {
+        // First-time activation: FormSubmit sent a confirmation email
+        setStatus("confirm");
       } else {
         setStatus("error");
       }
@@ -66,9 +70,14 @@ export default function ContactPage() {
                   Message sent! We&apos;ll get back to you within 24 hours.
                 </div>
               )}
+              {status === "confirm" && (
+                <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg text-blue-700 font-medium">
+                  Almost there! A confirmation email was sent to our inbox. We&apos;re activating the form now — please try again in a few minutes, or email us directly at <a href="mailto:info@dijisol.com" className="underline">info@dijisol.com</a>.
+                </div>
+              )}
               {status === "error" && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600 font-medium">
-                  Something went wrong. Please try again or email us directly.
+                  Something went wrong. Please try again or email us at <a href="mailto:info@dijisol.com" className="underline">info@dijisol.com</a>.
                 </div>
               )}
 
