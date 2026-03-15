@@ -9,22 +9,23 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus("sending");
 
-    // Web3Forms — free, no backend required, 250 submissions/month
+    // FormSubmit.co — free, no registration needed, unlimited submissions
+    // First submission triggers a confirmation email to info@dijisol.com
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("https://formsubmit.co/ajax/info@dijisol.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          access_key: "YOUR_WEB3FORMS_KEY", // TODO: Replace with real key from https://web3forms.com
-          subject: `DijiSol Contact: ${form.service || "General Inquiry"}`,
-          from_name: form.name,
+          _subject: `DijiSol Contact: ${form.service || "General Inquiry"}`,
+          name: form.name,
           email: form.email,
           service: form.service,
           message: form.message,
+          _template: "table",
         }),
       });
       const data = await res.json();
-      if (data.success) {
+      if (data.success === "true" || data.success === true) {
         setStatus("sent");
         setForm({ name: "", email: "", service: "", message: "" });
       } else {
