@@ -288,7 +288,7 @@ export default function ShopPage() {
                   onSubmit={async (e) => {
                     e.preventDefault();
                     try {
-                      await fetch("https://formsubmit.co/ajax/info@dijisol.com", {
+                      await fetch("https://formsubmit.co/ajax/solutions@dijisol.com", {
                         method: "POST",
                         headers: { "Content-Type": "application/json", Accept: "application/json" },
                         body: JSON.stringify({

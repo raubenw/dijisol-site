@@ -10,9 +10,9 @@ export default function ContactPage() {
     setStatus("sending");
 
     // FormSubmit.co — free, no registration needed, unlimited submissions
-    // First submission triggers a confirmation email to info@dijisol.com
+    // First submission triggers a confirmation email to solutions@dijisol.com
     try {
-      const res = await fetch("https://formsubmit.co/ajax/info@dijisol.com", {
+      const res = await fetch("https://formsubmit.co/ajax/solutions@dijisol.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
@@ -72,12 +72,12 @@ export default function ContactPage() {
               )}
               {status === "confirm" && (
                 <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg text-blue-700 font-medium">
-                  Almost there! A confirmation email was sent to our inbox. We&apos;re activating the form now — please try again in a few minutes, or email us directly at <a href="mailto:info@dijisol.com" className="underline">info@dijisol.com</a>.
+                  Almost there! A confirmation email was sent to our inbox. We&apos;re activating the form now — please try again in a few minutes, or email us directly at <a href="mailto:solutions@dijisol.com" className="underline">solutions@dijisol.com</a>.
                 </div>
               )}
               {status === "error" && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600 font-medium">
-                  Something went wrong. Please try again or email us at <a href="mailto:info@dijisol.com" className="underline">info@dijisol.com</a>.
+                  Something went wrong. Please try again or email us at <a href="mailto:solutions@dijisol.com" className="underline">solutions@dijisol.com</a>.
                 </div>
               )}
 
@@ -151,7 +151,7 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <div>
                     <h4 className="text-sm font-semibold text-gray-700 mb-1">Email</h4>
-                    <a href="mailto:info@dijisol.com" className="text-primary hover:underline">info@dijisol.com</a>
+                    <a href="mailto:solutions@dijisol.com" className="text-primary hover:underline">solutions@dijisol.com</a>
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-gray-700 mb-1">Social</h4>
