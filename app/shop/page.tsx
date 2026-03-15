@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 /* ─── Software Products ─── */
 const SOFTWARE = [
@@ -90,6 +90,14 @@ const PRODUCTS: Product[] = [
 
 const CATEGORIES = ["All", "Laptops", "Smartphones", "Tablets", "Networking", "Peripherals", "Storage"];
 
+const ZAR_TO_USD = 0.055; // ~R18 per $1
+
+function formatPrice(zarPrice: number, currency: "ZAR" | "USD"): string {
+  if (currency === "ZAR") return `R${zarPrice.toLocaleString()}`;
+  const usd = Math.round(zarPrice * ZAR_TO_USD);
+  return `$${usd.toLocaleString()}`;
+}
+
 const COLOR_MAP: Record<string, {bg: string; border: string; text: string}> = {
   blue: { bg: "bg-blue-50", border: "border-blue-200 hover:border-blue-400", text: "text-blue-600" },
   purple: { bg: "bg-purple-50", border: "border-purple-200 hover:border-purple-400", text: "text-purple-600" },
@@ -100,9 +108,22 @@ const COLOR_MAP: Record<string, {bg: string; border: string; text: string}> = {
 export default function ShopPage() {
   const [tab, setTab] = useState<"software" | "hardware">("software");
   const [category, setCategory] = useState("All");
+  const [currency, setCurrency] = useState<"ZAR" | "USD">("USD");
   const [orderProduct, setOrderProduct] = useState<Product | null>(null);
-  const [orderForm, setOrderForm] = useState({ name: "", email: "", phone: "", address: "", city: "", postalCode: "" });
+  const [orderForm, setOrderForm] = useState({ name: "", email: "", phone: "", address: "", city: "", postalCode: "", country: "" });
   const [orderStatus, setOrderStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  // Auto-detect: ZAR for South Africa, USD for everyone else
+  useEffect(() => {
+    fetch("https://ipapi.co/json/")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.country_code === "ZA") setCurrency("ZAR");
+      })
+      .catch(() => {}); // default stays USD
+  }, []);
+
+  const fp = (zarPrice: number) => formatPrice(zarPrice, currency);
 
   const filtered = category === "All" ? PRODUCTS : PRODUCTS.filter((p) => p.category === category);
 
@@ -116,21 +137,23 @@ export default function ShopPage() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: "5c53a2d5-0ba9-433b-ad6f-8baa902d50c1",
-          subject: `DijiSol Order: ${orderProduct.name} — R${orderProduct.price.toLocaleString()}`,
+          subject: `DijiSol Order: ${orderProduct.name} — ${fp(orderProduct.price)} (R${orderProduct.price.toLocaleString()})`,
           from_name: orderForm.name,
           name: orderForm.name,
           email: orderForm.email,
           phone: orderForm.phone,
           product: `${orderProduct.name} (${orderProduct.id})`,
-          price: `R${orderProduct.price.toLocaleString()}`,
-          shipping_address: `${orderForm.address}, ${orderForm.city}, ${orderForm.postalCode}`,
-          message: `New order for ${orderProduct.name} at R${orderProduct.price.toLocaleString()}. Customer: ${orderForm.name}, ${orderForm.email}, ${orderForm.phone}. Ship to: ${orderForm.address}, ${orderForm.city}, ${orderForm.postalCode}.`,
+          price: `${fp(orderProduct.price)} (R${orderProduct.price.toLocaleString()} ZAR)`,
+          currency: currency,
+          country: orderForm.country,
+          shipping_address: `${orderForm.address}, ${orderForm.city}, ${orderForm.postalCode}, ${orderForm.country}`,
+          message: `New order for ${orderProduct.name} at ${fp(orderProduct.price)} (R${orderProduct.price.toLocaleString()} ZAR). Currency: ${currency}. Customer: ${orderForm.name}, ${orderForm.email}, ${orderForm.phone}. Ship to: ${orderForm.address}, ${orderForm.city}, ${orderForm.postalCode}, ${orderForm.country}.`,
         }),
       });
       const data = await res.json();
       if (data.success) {
         setOrderStatus("sent");
-        setOrderForm({ name: "", email: "", phone: "", address: "", city: "", postalCode: "" });
+        setOrderForm({ name: "", email: "", phone: "", address: "", city: "", postalCode: "", country: "" });
       } else {
         setOrderStatus("error");
       }
@@ -156,7 +179,7 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* Tab Selector */}
+      {/* Tab Selector + Currency Toggle */}
       <section className="bg-white border-b border-gray-200 sticky top-16 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-0">
@@ -180,6 +203,15 @@ export default function ShopPage() {
             >
               💻 Tech Hardware
             </button>
+            <div className="ml-auto flex items-center">
+              <button
+                onClick={() => setCurrency(currency === "ZAR" ? "USD" : "ZAR")}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-200 hover:border-primary/50 transition-colors text-gray-600 hover:text-primary"
+              >
+                {currency === "ZAR" ? "🇿🇦 ZAR" : "🇺🇸 USD"}
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" /></svg>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -320,7 +352,7 @@ export default function ShopPage() {
                   </div>
                   <div className="px-5 pb-5 pt-0">
                     <div className="flex items-center justify-between">
-                      <span className="text-xl font-extrabold text-gray-900">R{p.price.toLocaleString()}</span>
+                      <span className="text-xl font-extrabold text-gray-900">{fp(p.price)}</span>
                       <button
                         onClick={() => { setOrderProduct(p); setOrderStatus("idle"); }}
                         className="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-colors"
@@ -371,7 +403,7 @@ export default function ShopPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="text-lg font-bold text-gray-900">Order {orderProduct.name}</h3>
-                  <p className="text-primary font-extrabold text-xl">R{orderProduct.price.toLocaleString()}</p>
+                  <p className="text-primary font-extrabold text-xl">{fp(orderProduct.price)}</p>
                 </div>
                 <button onClick={() => setOrderProduct(null)} className="text-gray-400 hover:text-gray-600 p-1">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -414,11 +446,15 @@ export default function ShopPage() {
                   <input type="text" required value={orderForm.postalCode} onChange={(e) => setOrderForm({ ...orderForm, postalCode: e.target.value })} className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="2000" />
                 </div>
               </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                <input type="text" required value={orderForm.country} onChange={(e) => setOrderForm({ ...orderForm, country: e.target.value })} className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-gray-900 focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="South Africa" />
+              </div>
               <div className="bg-gray-50 rounded-lg p-3 text-sm text-gray-500">
                 After submitting, we&apos;ll email you a PayPal payment link. Your order ships once payment is confirmed.
               </div>
               <button type="submit" disabled={orderStatus === "sending"} className="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-50">
-                {orderStatus === "sending" ? "Placing Order..." : `Place Order — R${orderProduct.price.toLocaleString()}`}
+                {orderStatus === "sending" ? "Placing Order..." : `Place Order — ${fp(orderProduct.price)}`}
               </button>
             </form>
           </div>
