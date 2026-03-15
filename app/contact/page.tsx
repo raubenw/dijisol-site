@@ -29,13 +29,20 @@ export default function ContactPage() {
       if (data.success === "true" || data.success === true) {
         setStatus("sent");
         setForm({ name: "", email: "", service: "", message: "" });
-      } else if (data.message?.includes("Confirm")) {
+      } else if (
+        data.message?.toLowerCase().includes("confirm") ||
+        data.message?.toLowerCase().includes("activat") ||
+        data.message?.toLowerCase().includes("verify")
+      ) {
         // First-time activation: FormSubmit sent a confirmation email
         setStatus("confirm");
       } else {
-        setStatus("error");
+        // Likely unactivated email — show as confirm prompt
+        console.log("FormSubmit response:", JSON.stringify(data));
+        setStatus("confirm");
       }
-    } catch {
+    } catch (err) {
+      console.error("Contact form error:", err);
       setStatus("error");
     }
   };
