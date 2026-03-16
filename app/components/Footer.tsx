@@ -133,14 +133,6 @@ export default function Footer() {
                   X / Twitter
                 </a>
               </li>
-              <li>
-                <Link
-                  href="/shop"
-                  className="hover:text-white transition-colors"
-                >
-                  Shop
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
