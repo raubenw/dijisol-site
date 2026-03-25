@@ -28,7 +28,7 @@ const PRODUCTS = [
   {
     name: "TradeQuotes",
     desc: "AI-powered quote generator for tradespeople. Upload a sketch, get a professional quote in minutes.",
-    url: "https://quotes-67f32.web.app",
+    url: "https://tradequotes.dijisol.com",
     badge: "Live",
     icon: "🔧",
   },
