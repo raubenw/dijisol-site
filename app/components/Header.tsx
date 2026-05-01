@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
+  { label: "Get Started", href: "/get-started" },
   { label: "Services", href: "/services" },
   { label: "Products", href: "/products" },
   { label: "About", href: "/about" },
@@ -39,10 +40,10 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/get-started"
               className="ml-3 px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-colors"
             >
-              Get a Quote
+              Get Started
             </Link>
           </nav>
 
@@ -91,11 +92,11 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/get-started"
               onClick={() => setOpen(false)}
               className="block mt-2 mx-3 px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg text-center hover:bg-primary-dark"
             >
-              Get a Quote
+              Get Started
             </Link>
           </nav>
         )}

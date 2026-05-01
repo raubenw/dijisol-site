@@ -61,6 +61,9 @@ const STATS = [
   { value: "100%", label: "Client Focused" },
 ];
 
+const GET_STARTED_UTM_LINK =
+  "/get-started?utm_source=homepage&utm_medium=internal&utm_campaign=usa_offer";
+
 export default function HomePage() {
   return (
     <main>
@@ -86,6 +89,12 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
+                href={GET_STARTED_UTM_LINK}
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-colors text-base"
+              >
+                Get Started for $50
+              </Link>
+              <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors text-base"
               >
@@ -98,6 +107,28 @@ export default function HomePage() {
                 View Our Work
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Campaign Promo */}
+      <section className="bg-accent/10 border-y border-accent/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent-dark mb-1">
+                USA Campaign Offer
+              </p>
+              <p className="text-gray-800 font-semibold text-lg">
+                Launch your professional website for just $50.
+              </p>
+            </div>
+            <Link
+              href={GET_STARTED_UTM_LINK}
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-accent text-white font-semibold hover:bg-accent-dark transition-colors"
+            >
+              View Get Started Offer
+            </Link>
           </div>
         </div>
       </section>
