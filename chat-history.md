@@ -141,3 +141,40 @@
 
 ### Status
 - Repository prepared for commit and push.
+
+## 2026-05-01 (Returns & Exchanges Policy Page)
+
+### Request
+- Write and upload a professional returns & exchanges policy stating that digital products have no returns or exchanges due to their digital nature.
+- Provide the live URL(s) for the policy page.
+
+### Implementation
+- Created a new policy page at `/app/policy/returns-exchanges/page.tsx` with:
+  - Professional hero section with policy title and effective date
+  - Clear explanation of why digital products are non-returnable (immediate access, no physical inventory, consumption upon access)
+  - Service-specific details for websites, SaaS products, and digital assets
+  - Exceptions section covering product defects, service issues, security concerns, and billing errors
+  - Contact support link for special circumstances
+  - Professional typography and styling matching the DijiSol site design
+- Updated the Footer component (Header.tsx) to include a new "Legal & Policies" section with links to:
+  - Returns & Exchanges Policy (new)
+  - Privacy Policy
+  - Terms of Service
+- Updated Footer grid from `md:grid-cols-4` to `md:grid-cols-5` to accommodate the new Legal section
+- Removed old privacy/terms links from the bottom footer bar since they're now in the Legal section
+
+### Build & Deploy
+- Rebuilt the Next.js project with `npm run build`
+- Verified policy page exists at `out/policy/returns-exchanges/index.html`
+- Deployed to Firebase Hosting with `firebase deploy --project dijisol-site --only hosting`
+- Deployment completed successfully
+
+### Live URLs
+- **Custom Domain**: https://dijisol.com/policy/returns-exchanges/
+- **Firebase Hosting**: https://dijisol-site.web.app/policy/returns-exchanges/
+
+### Status
+- Returns & exchanges policy page is live and accessible.
+- Footer navigation updated to include policy link.
+- Policy page uses professional tone and clearly communicates DijiSol's no-returns stance for digital products.
+
