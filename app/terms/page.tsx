@@ -15,8 +15,8 @@ export default function TermsOfService() {
           <h1 className="text-5xl sm:text-6xl font-bold mb-4 bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">
             Terms of Service
           </h1>
-          <p className="text-gray-400 text-lg">
-            Effective Date: May 15, 2026
+          <p className="text-white text-lg">
+            Effective Date: 1 January 2026
           </p>
         </div>
       </section>
