@@ -1,139 +1,130 @@
-"use client";
 import Link from "next/link";
 
 const SERVICES = [
   {
-    icon: "🌐",
+    icon: "WP",
+    title: "WordPress Development & Maintenance",
+    desc: "Professional WordPress websites with long-term support, responsive implementation, performance optimisation, and editor-friendly content management.",
+  },
+  {
+    icon: "WEB",
     title: "Web Development",
-    desc: "Modern, responsive websites built with cutting-edge technology. From landing pages to complex web applications.",
+    desc: "Professional organisational websites and digital platforms built for maintainability, accessibility, and long-term reliability.",
   },
   {
-    icon: "🚀",
+    icon: "SaaS",
     title: "SaaS Development",
-    desc: "Full-stack Software-as-a-Service platforms with user management, billing, and scalable architecture.",
+    desc: "Full-stack Software-as-a-Service platforms with secure architecture, robust integrations, and structured delivery.",
   },
   {
-    icon: "📱",
+    icon: "APP",
     title: "Android Apps",
-    desc: "Native Android applications published to the Google Play Store. Clean UX and reliable performance.",
+    desc: "Mobile applications with dependable performance, clear UX, and practical implementation for real-world use.",
   },
   {
-    icon: "🤖",
+    icon: "AI",
     title: "AI Integration",
-    desc: "Intelligent features powered by modern AI — from document extraction to smart recommendations.",
+    desc: "Practical AI features added where they create clear value, supported by stable engineering and maintainable systems.",
   },
 ];
 
 const PRODUCTS = [
   {
     name: "TradeQuotes",
-    desc: "AI-powered quote generator for tradespeople. Upload a sketch, get a professional quote in minutes.",
+    desc: "Digital platform for trades and quoting workflows.",
     url: "https://tradequotes.dijisol.com",
     badge: "Live",
-    icon: "🔧",
+    icon: "TQ",
   },
   {
     name: "Life By Priority",
-    desc: "Goal setting and life planning app. Available on web and Google Play Store.",
+    desc: "Goal planning and productivity platform with web and mobile delivery.",
     url: "https://lifebypriority.com",
     badge: "Live",
-    icon: "🎯",
+    icon: "LBP",
   },
   {
     name: "TrackingTrax",
-    desc: "Budget and finance tracking app to help you take control of your money.",
+    desc: "Finance and tracking platform for practical daily use.",
     url: "https://trackingtrax.com",
     badge: "Live",
-    icon: "💰",
+    icon: "TT",
   },
   {
     name: "CliComp Agency",
-    desc: "AI-powered client finder and competitor analysis tool for agencies.",
+    desc: "Business-focused agency platform and operational tools.",
     url: "https://clicomp.agency",
     badge: "Live",
-    icon: "🔍",
+    icon: "CC",
+  },
+];
+
+const CLIENT_REFERENCES = [
+  {
+    name: "WALT PBM",
+    desc: "International scientific organisation website maintained and supported for more than 10 years.",
+  },
+  {
+    name: "CliComp Agency",
+    desc: "Business-focused digital platform and agency tools.",
+  },
+  {
+    name: "DijiSol",
+    desc: "Internal company platform and digital services infrastructure.",
   },
 ];
 
 const STATS = [
-  { value: "4+", label: "Products Shipped" },
-  { value: "8", label: "Industries Served" },
-  { value: "100%", label: "Client Focused" },
+  { value: "10+", label: "Years Of Long-Term Support" },
+  { value: "4+", label: "Products In Production" },
+  { value: "100%", label: "Structured Delivery Focus" },
 ];
-
-const GET_STARTED_UTM_LINK =
-  "/get-started?utm_source=homepage&utm_medium=internal&utm_campaign=usa_offer";
 
 export default function HomePage() {
   return (
     <main>
-      {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-dark via-dark-light to-dark">
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <p className="text-primary-light font-semibold text-sm uppercase tracking-wider mb-4">
-              Digital Solutions That Deliver
+              Trusted long-term support provider for international and
+              research-oriented organisations
             </p>
             <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
-              We Build Software That{" "}
-              <span className="gradient-text">Grows Your Business</span>
+              Professional Web Development & Digital Solutions
             </h1>
-            <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl leading-relaxed">
-              From websites and SaaS platforms to mobile apps with intelligent
-              AI features — we turn your ideas into production-ready digital
-              products.
+            <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-3xl leading-relaxed">
+              DijiSol provides professional WordPress development, long-term
+              website maintenance, SaaS platforms, and digital solutions for
+              organisations, businesses, and research-oriented initiatives.
+            </p>
+            <p className="text-base md:text-lg text-gray-400 mb-10 max-w-3xl leading-relaxed">
+              We deliver organisational websites with editor-friendly content
+              management, dependable support, and structured implementation for
+              communication teams and operational stakeholders.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href={GET_STARTED_UTM_LINK}
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-colors text-base"
-              >
-                Get Started for $50
-              </Link>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors text-base"
               >
-                Start Your Project
+                Discuss Your Requirements
               </Link>
               <Link
-                href="/products"
+                href="/services"
                 className="inline-flex items-center justify-center px-8 py-3.5 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-primary hover:text-white transition-colors text-base"
               >
-                View Our Work
+                View Services
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Campaign Promo */}
-      <section className="bg-accent/10 border-y border-accent/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-accent-dark mb-1">
-                USA Campaign Offer
-              </p>
-              <p className="text-gray-800 font-semibold text-lg">
-                Launch your professional website for just $50.
-              </p>
-            </div>
-            <Link
-              href={GET_STARTED_UTM_LINK}
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-accent text-white font-semibold hover:bg-accent-dark transition-colors"
-            >
-              View Get Started Offer
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
       <section className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-3 gap-8 text-center">
@@ -149,7 +140,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Overview */}
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -157,14 +147,15 @@ export default function HomePage() {
               What We Do
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-              End-to-End Digital Development
+              Professional Development & Long-Term Support
             </h2>
-            <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-              We build intelligent solutions powered by modern technology.
-              Whatever your digital need, we&apos;ve got you covered.
+            <p className="mt-4 text-gray-500 max-w-3xl mx-auto">
+              We build dependable digital platforms for associations,
+              organisations, research initiatives, and businesses that need
+              stable delivery and maintainable outcomes.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {SERVICES.map((s) => (
               <div
                 key={s.title}
@@ -191,7 +182,72 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Products Showcase */}
+      <section className="py-20 md:py-24 bg-white border-y border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
+            Ongoing Maintenance & Support
+          </h2>
+          <p className="text-gray-600 text-lg leading-relaxed">
+            We provide continued technical support after launch to ensure
+            websites remain stable, secure, and up to date. Our support
+            services include WordPress updates, troubleshooting, optimisation,
+            backups, and long-term maintenance assistance.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
+              Selected Clients & Projects
+            </p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+              Proven Long-Term Delivery
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {CLIENT_REFERENCES.map((item) => (
+              <div
+                key={item.name}
+                className="bg-gray-50 rounded-xl p-6 border border-gray-200"
+              >
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {item.name}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-24 bg-gray-50 border-y border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white border border-gray-200 rounded-xl p-7">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Accessibility & Performance
+            </h3>
+            <p className="text-gray-600 leading-relaxed">
+              We prioritise responsive design, accessibility-conscious
+              implementation, and performance optimisation to ensure websites
+              remain usable, fast, and maintainable across devices and browsers.
+            </p>
+          </div>
+          <div className="bg-white border border-gray-200 rounded-xl p-7">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Documentation & Handover
+            </h3>
+            <p className="text-gray-600 leading-relaxed">
+              We provide practical documentation and handover guidance to help
+              teams manage website content and workflows after launch.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -199,11 +255,11 @@ export default function HomePage() {
               Our Products
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-              Software We&apos;ve Built &amp; Shipped
+              Digital Platforms In Production
             </h2>
             <p className="mt-4 text-gray-500 max-w-2xl mx-auto">
-              Real products, live in production, serving real users. This is
-              what we do — and we can build it for you too.
+              Practical, production-ready platforms developed with structured
+              engineering and maintainable architecture.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -230,58 +286,28 @@ export default function HomePage() {
                       {p.desc}
                     </p>
                   </div>
-                  <svg
-                    className="w-5 h-5 text-gray-300 group-hover:text-primary transition-colors mt-1 flex-shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
                 </div>
               </a>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/products"
-              className="text-primary font-semibold hover:underline text-sm"
-            >
-              View All Products &rarr;
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-20 md:py-28 bg-gradient-to-br from-primary to-primary-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
-            Ready to Build Something Great?
+            Professional Digital Delivery With Long-Term Reliability
           </h2>
           <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
-            Whether you need a website, a SaaS platform, a mobile app, or smart
-            AI features — let&apos;s talk about your project.
+            We support organisations with dependable WordPress implementation,
+            structured development, and ongoing technical support.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              Get a Free Quote
-            </Link>
-            <Link
-              href="/shop"
-              className="inline-flex items-center justify-center px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-lg hover:border-white/60 transition-colors"
-            >
-              Browse Our Shop
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            Start A Professional Discussion
+          </Link>
         </div>
       </section>
     </main>

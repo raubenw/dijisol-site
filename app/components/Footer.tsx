@@ -16,9 +16,20 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Digital solutions that drive real results. We build software,
-              websites, and apps that grow your business.
+              Professional WordPress development, long-term website
+              maintenance, and dependable digital platform support.
             </p>
+            <div className="mt-4 text-sm text-gray-400 space-y-1">
+              <p className="text-gray-300 font-medium">Werner Raubenheimer</p>
+              <p>South Africa</p>
+              <a
+                href="mailto:solutions@dijisol.com"
+                className="hover:text-white transition-colors"
+              >
+                solutions@dijisol.com
+              </a>
+              <p>+27 (0) 84 317 7073</p>
+            </div>
           </div>
 
           {/* Services */}
@@ -32,7 +43,7 @@ export default function Footer() {
                   href="/services"
                   className="hover:text-white transition-colors"
                 >
-                  Web Development
+                  WordPress Development
                 </Link>
               </li>
               <li>
@@ -56,7 +67,7 @@ export default function Footer() {
                   href="/services"
                   className="hover:text-white transition-colors"
                 >
-                  AI Integration
+                  Website Maintenance
                 </Link>
               </li>
             </ul>
@@ -164,6 +175,14 @@ export default function Footer() {
                   className="hover:text-white transition-colors"
                 >
                   Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/policy/cookies"
+                  className="hover:text-white transition-colors"
+                >
+                  Cookie Policy
                 </Link>
               </li>
             </ul>

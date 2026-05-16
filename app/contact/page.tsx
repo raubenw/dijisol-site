@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -7,6 +8,7 @@ export default function ContactPage() {
     email: "",
     service: "",
     message: "",
+    consent: false,
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle",
@@ -31,12 +33,19 @@ export default function ContactPage() {
           email: form.email,
           service: form.service,
           message: form.message,
+          consent: form.consent ? "Accepted" : "Not accepted",
         }),
       });
       const data = await res.json();
       if (data.success) {
         setStatus("sent");
-        setForm({ name: "", email: "", service: "", message: "" });
+        setForm({
+          name: "",
+          email: "",
+          service: "",
+          message: "",
+          consent: false,
+        });
       } else {
         setStatus("error");
       }
@@ -55,11 +64,11 @@ export default function ContactPage() {
               Contact Us
             </p>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
-              Let&apos;s Talk About Your Project
+              Let&apos;s Discuss Your Requirements
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl leading-relaxed">
-              Tell us what you need. We respond within 24 hours with an honest
-              assessment and free consultation.
+              Tell us about your organisation, project scope, and delivery
+              timeline. We typically respond within 24 hours on business days.
             </p>
           </div>
         </div>
@@ -138,6 +147,12 @@ export default function ContactPage() {
                     <option value="Website Development">
                       Website Development
                     </option>
+                    <option value="WordPress Development and Maintenance">
+                      WordPress Development &amp; Maintenance
+                    </option>
+                    <option value="Organisational Website Development">
+                      Organisational Website Development
+                    </option>
                     <option value="SaaS Development">SaaS Development</option>
                     <option value="Android App">Android App</option>
                     <option value="iOS App">iOS App</option>
@@ -170,6 +185,25 @@ export default function ContactPage() {
                 >
                   {status === "sending" ? "Sending..." : "Send Message"}
                 </button>
+                <label className="flex items-start gap-3 text-sm text-gray-600">
+                  <input
+                    type="checkbox"
+                    required
+                    checked={form.consent}
+                    onChange={(e) =>
+                      setForm({ ...form, consent: e.target.checked })
+                    }
+                    className="mt-0.5 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                  />
+                  <span>
+                    I consent to DijiSol storing my submitted information in
+                    order to respond to my enquiry. See our{" "}
+                    <Link href="/privacy" className="text-primary hover:underline">
+                      Privacy Policy
+                    </Link>
+                    .
+                  </span>
+                </label>
               </form>
             </div>
 
@@ -211,6 +245,20 @@ export default function ContactPage() {
                     <p className="text-sm text-gray-500">
                       We typically respond within 24 hours on business days.
                     </p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-1">
+                      Business Contact
+                    </h4>
+                    <p className="text-sm text-gray-500">Werner Raubenheimer</p>
+                    <p className="text-sm text-gray-500">South Africa</p>
+                    <a
+                      href="mailto:solutions@dijisol.com"
+                      className="text-primary hover:underline"
+                    >
+                      solutions@dijisol.com
+                    </a>
+                    <p className="text-sm text-gray-500">+27 (0) 84 317 7073</p>
                   </div>
                 </div>
 

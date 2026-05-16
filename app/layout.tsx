@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CookieConsent from "./components/CookieConsent";
 
 export const metadata: Metadata = {
-  title: "DijiSol — Digital Solutions That Deliver",
+  title: "DijiSol — Professional WordPress & Digital Development",
   description:
-    "Web development, SaaS apps, Android apps, and AI-powered solutions. We build intelligent software that grows your business.",
+    "Professional WordPress development, long-term website maintenance, SaaS platforms, and digital solutions for organisations and businesses.",
   keywords:
-    "web development, SaaS, Android apps, AI integration, software development, digital solutions",
+    "WordPress development, WordPress maintenance, organisational websites, SaaS development, digital platform support",
   openGraph: {
-    title: "DijiSol — Digital Solutions That Deliver",
+    title: "DijiSol — Professional WordPress & Digital Development",
     description:
-      "Web development, SaaS apps, Android apps, and AI-powered solutions.",
+      "Professional WordPress development, long-term website maintenance, and digital platform support.",
     url: "https://dijisol.com",
     siteName: "DijiSol",
     type: "website",
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body className="antialiased bg-white text-gray-900">
         <Header />
         <div className="pt-16">{children}</div>
+        <CookieConsent />
         <Footer />
       </body>
     </html>

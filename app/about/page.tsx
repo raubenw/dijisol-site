@@ -1,89 +1,77 @@
-"use client";
 import Link from "next/link";
 
 export default function AboutPage() {
   return (
     <main>
-      {/* Hero */}
       <section className="bg-gradient-to-br from-dark via-dark-light to-dark py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <p className="text-primary-light font-semibold text-sm uppercase tracking-wider mb-4">
               About DijiSol
             </p>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
-              We Build. We Ship. We Iterate.
+              Professional Digital Development With Long-Term Support
             </h1>
-            <p className="text-lg text-gray-400 max-w-2xl leading-relaxed">
-              DijiSol is a digital development studio focused on building real
-              software that solves real problems — without the enterprise
-              overhead.
+            <p className="text-lg text-gray-300 max-w-3xl leading-relaxed">
+              We focus on practical, dependable digital solutions with clear
+              communication, structured delivery, and long-term support.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Story */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8">
-            Our Story
+            How We Deliver
           </h2>
           <div className="prose prose-lg text-gray-600 space-y-6">
             <p>
-              DijiSol started with a simple belief: great software doesn&apos;t
-              need to cost a fortune or take forever to build. We&apos;ve
-              shipped multiple products — from AI-powered quoting tools to
-              goal-setting apps — and every one taught us something new.
+              DijiSol provides professional WordPress development, long-term
+              website maintenance, SaaS platforms, and digital solutions for
+              organisations, businesses, and research-oriented initiatives.
             </p>
             <p>
-              We build in public, learn from every launch, and focus on what
-              actually works. No hype. No guru promises. Just solid development
-              and honest results.
+              We prioritise dependable execution, strong communication, and
+              maintainable delivery standards. Our work supports both immediate
+              project requirements and long-term operational continuity.
             </p>
             <p>
-              Our approach combines modern development frameworks with
-              intelligent AI capabilities to deliver products that are both
-              powerful and practical. Whether it&apos;s a website for your
-              business, a SaaS platform for your customers, or a mobile app for
-              the Play Store — we handle the full journey from concept to
-              production.
+              We build editor-friendly WordPress implementations that allow
+              non-technical teams to confidently manage and publish content.
+              Our support model includes updates, troubleshooting, optimisation,
+              backups, and practical long-term maintenance.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Values */}
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-              How We Work
+              Delivery Principles
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Ship Fast, Iterate Often",
-                desc: "We get your product live quickly, then improve based on real feedback — not assumptions.",
-                icon: "⚡",
+                title: "Dependable Delivery",
+                desc: "Structured planning, practical execution, and clear milestones from project start through handover.",
               },
               {
-                title: "Transparent & Honest",
-                desc: "Clear pricing, realistic timelines, and open communication. You always know where your project stands.",
-                icon: "🤝",
+                title: "Collaborative Communication",
+                desc: "Clear communication with stakeholders, communication teams, and technical teams throughout delivery.",
               },
               {
-                title: "Built to Last",
-                desc: "We use proven, modern technology stacks. Your product won't be stuck on outdated frameworks.",
-                icon: "🏗️",
+                title: "Long-Term Support",
+                desc: "Ongoing maintenance and support to keep websites and digital platforms secure, stable, and current.",
               },
             ].map((v) => (
               <div
                 key={v.title}
                 className="bg-white rounded-xl p-8 border border-gray-200"
               >
-                <span className="text-3xl mb-4 block">{v.icon}</span>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {v.title}
                 </h3>
@@ -96,31 +84,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Tech Stack */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-              Our Technology
+              Core Technology Stack
             </h2>
             <p className="mt-4 text-gray-500">
-              Modern, proven tools that deliver results
+              WordPress, modern web engineering, SaaS architecture, and
+              maintainable delivery tooling
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
+              "WordPress",
+              "PHP",
               "Next.js",
-              "React",
               "TypeScript",
+              "React",
               "Tailwind CSS",
               "Firebase",
               "Google Cloud",
               "Node.js",
-              "Android Studio",
-              "Google AI",
               "PostgreSQL",
-              "jsPDF",
-              "HTML Canvas",
+              "SEO Foundations",
+              "Performance Tooling",
             ].map((t) => (
               <div
                 key={t}
@@ -133,20 +121,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-20 md:py-28 bg-gradient-to-br from-primary to-primary-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
-            Let&apos;s Work Together
+            Looking For A Long-Term Digital Partner?
           </h2>
           <p className="text-lg text-blue-100 mb-10">
-            Have a project in mind? We&apos;d love to hear about it.
+            We support organisational websites and digital platforms with
+            dependable delivery and continued support.
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-colors"
           >
-            Get in Touch
+            Contact DijiSol
           </Link>
         </div>
       </section>
