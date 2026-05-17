@@ -59,18 +59,56 @@ const PRODUCTS = [
   },
 ];
 
-const CLIENT_REFERENCES = [
+const CLIENT_SITES = [
   {
     name: "WALT PBM",
-    desc: "International scientific organisation website maintained and supported for more than 10 years.",
+    desc: "Long-term maintenance and support for international scientific organization website (10+ years).",
+    previewUrl: "/client-screenshots/WALT%20Home%20Top%20section.jpg",
+    links: [{ label: "Visit Site", url: "https://waltpbm.org/" }],
   },
   {
-    name: "CliComp Agency",
-    desc: "Business-focused digital platform and agency tools.",
+    name: "Back On Track Wellness",
+    desc: "Professional chiropractic and wellness website focused on rehabilitation, red light therapy, patient education, and appointment-based healthcare services.",
+    previewUrl: "/client-screenshots/back%20on%20track%20home%20page.jpg",
+    links: [
+      { label: "Visit Site", url: "https://backontrackwellness.co.za/" },
+    ],
   },
   {
-    name: "DijiSol",
-    desc: "Internal company platform and digital services infrastructure.",
+    name: "RCTech Two Way Radio Communication",
+    desc: "Professional radio communication systems for forestry, mining, farming and security industries across Mpumalanga.",
+    previewUrl: "/client-screenshots/rctech%20world%20home%20page.jpg",
+    links: [{ label: "Visit Site", url: "https://rctech.world/" }],
+  },
+  {
+    name: "Dentist On Olifants",
+    desc: "Professional marketing website for dental practice.",
+    previewUrl: "/client-screenshots/dentist%20home%20page.jpg",
+    links: [{ label: "Visit Site", url: "https://emmarentiadentist.co.za/" }],
+  },
+  {
+    name: "CLT Electric",
+    desc: "Commercial website for electrical services company.",
+    previewUrl: "/client-screenshots/clt%20electrician%20home%20page.jpg",
+    links: [{ label: "Visit Site", url: "https://cltelectric.co.za/" }],
+  },
+  {
+    name: "De Beer Bonsmara",
+    desc: "Commercial cattle farming and agricultural products platform.",
+    previewUrl: "/client-screenshots/Bonsmara%20Top%20home%20page.jpg",
+    links: [{ label: "Visit Site", url: "https://debeerbonsmara.com/" }],
+  },
+  {
+    name: "ETTC",
+    desc: "Corporate trucking company website and related brand platforms.",
+    previewUrl: "/client-screenshots/ettc%20home%20page.jpg",
+    links: [{ label: "Visit Site", url: "https://ettc.co.za/" }],
+  },
+  {
+    name: "FAW Ermelo",
+    desc: "Related brand platform for the ETTC transport group.",
+    previewUrl: "/client-screenshots/faw%20home%20page.jpg",
+    links: [{ label: "Visit Site", url: "https://fawermelo.co.za/" }],
   },
 ];
 
@@ -200,24 +238,45 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-2">
-              Selected Clients & Projects
+              Client Websites & References
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-              Proven Long-Term Delivery
+              Proven Delivery Across Multiple Industries
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {CLIENT_REFERENCES.map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {CLIENT_SITES.map((item) => (
               <div
                 key={item.name}
-                className="bg-gray-50 rounded-xl p-6 border border-gray-200"
+                className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden"
               >
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  {item.name}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {item.desc}
-                </p>
+                <img
+                  src={item.previewUrl}
+                  alt={`${item.name} homepage preview`}
+                  className="w-full aspect-video object-cover border-b border-gray-200"
+                  loading="lazy"
+                />
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    {item.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                    {item.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {item.links.map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener"
+                        className="inline-flex items-center px-3 py-1.5 text-xs font-semibold rounded-md bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
